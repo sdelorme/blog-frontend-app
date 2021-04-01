@@ -5,6 +5,7 @@ import Fun from "../views/Fun.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import Posts from "../views/PostsIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/logout",
     name: "Logout",
     component: Logout,
+  },
+  {
+    path: "/posts",
+    name: "Posts",
+    component: Posts,
   },
   {
     path: "/about",
