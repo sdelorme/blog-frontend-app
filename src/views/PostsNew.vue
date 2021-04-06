@@ -14,7 +14,7 @@
         Image Url:
         <input v-model="newPostImage" />
       </p>
-      <button v-on:click="createPost">Create New Post</button>
+      <button v-on:click="createPost()">Create New Post</button>
     </div>
   </div>
 </template>

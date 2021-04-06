@@ -7,6 +7,7 @@
     <hr />
     <img v-bind:src="post.image" />
     <hr />
+    <router-link v-bind:to="`/api/posts/${this.$route.params.id}`">Edit Post</router-link>
   </div>
 </template>
 
