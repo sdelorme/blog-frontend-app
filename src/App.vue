@@ -16,6 +16,8 @@
       <router-link to="/signup">Sign Up</router-link>
       |
       <router-link to="/posts/new">Create a Post!</router-link>
+      |
+      <router-link to="/posts/:id">Find a Post!</router-link>
     </div>
     <router-view />
   </div>
