@@ -2,11 +2,13 @@
   <div class="home">
     <h1>{{ message }}</h1>
     <div v-for="post in posts" :key="post.id">
+      <strong>Title:</strong>
       {{ post.title }}
       <br />
+      <strong>Body:</strong>
       {{ post.body }}
       <br />
-      {{ post.image }}
+      <img v-bind:src="post.image" />
       <hr />
     </div>
   </div>
