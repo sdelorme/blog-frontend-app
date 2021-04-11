@@ -5,19 +5,21 @@
       |
       <router-link to="/about">About</router-link>
       |
-      <router-link to="/posts">Posts</router-link>
+      <router-link to="/posts" v-if="isLoggedIn()">Posts</router-link>
       |
-      <router-link to="/fun">Fun</router-link>
+      <router-link to="/fun" v-if="isLoggedIn()">Fun</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link to="/login" v-if="!isLoggedIn()">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link to="/signup" v-if="!isLoggedIn()">Sign Up</router-link>
       |
-      <router-link to="/signup">Sign Up</router-link>
+      <router-link to="/posts/new" v-if="isLoggedIn()">Create a Post!</router-link>
       |
-      <router-link to="/posts/new">Create a Post!</router-link>
+      <router-link to="/posts/:id" v-if="isLoggedIn()">Find a Post!</router-link>
       |
-      <router-link to="/posts/:id">Find a Post!</router-link>
+      <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
+      <p v-if="isLoggedIn()">Currently Logged In</p>
+      <p v-else>User needs to sign in!</p>
     </div>
     <router-view />
   </div>
@@ -45,3 +47,14 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      console.log("user is logged in!");
+      if (localStorage.getItem("jwt")) return true;
+    },
+  },
+};
+</script>
