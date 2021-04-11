@@ -1,7 +1,11 @@
 <template>
   <div class="home">
+    <p>
+      Search by keyword:
+      <input v-model="searchTerm" />
+    </p>
     <h1>{{ message }}</h1>
-    <div v-for="post in posts" :key="post.id">
+    <div v-for="post in orderBy(filterBy(posts, searchTerm, 'title', 'body'), 'title', 1)" :key="post.id">
       <strong>Title:</strong>
       {{ post.title }}
       <br />
@@ -18,11 +22,14 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       message: "ALL OF THE POSTS!",
       posts: [],
+      searchTerm: "",
     };
   },
   created: function () {
