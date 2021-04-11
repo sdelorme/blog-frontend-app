@@ -30,6 +30,7 @@ export default {
       title: "",
       body: "",
       image: "",
+      userId: "",
     };
   },
   created: function () {
@@ -38,6 +39,7 @@ export default {
       this.title = response.data.title;
       this.body = response.data.body;
       this.image = response.data.image;
+      this.UserId = response.data.user_id;
     });
   },
   methods: {

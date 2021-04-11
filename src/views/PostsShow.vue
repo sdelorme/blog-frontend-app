@@ -7,7 +7,9 @@
     <hr />
     <img v-bind:src="post.image" />
     <hr />
-    <router-link v-bind:to="`/posts/${this.$route.params.id}/edit`">Edit Post</router-link>
+    <div v-if="post.user_id == $parent.currentUserId()">
+      <router-link v-bind:to="`/posts/${this.$route.params.id}/edit`">Edit Post</router-link>
+    </div>
   </div>
 </template>
 

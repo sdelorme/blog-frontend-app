@@ -18,7 +18,7 @@
       <router-link to="/posts/:id" v-if="isLoggedIn()">Find a Post!</router-link>
       |
       <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
-      <p v-if="isLoggedIn()">Currently Logged In</p>
+      <p v-if="isLoggedIn()">Currently Logged In with User Id {{ currentUserId() }}</p>
       <p v-else>User needs to sign in!</p>
     </div>
     <router-view />
@@ -54,6 +54,10 @@ export default {
     isLoggedIn: function () {
       console.log("user is logged in!");
       if (localStorage.getItem("jwt")) return true;
+    },
+    currentUserId: function () {
+      console.log("stored user id")
+      return localStorage.getItem("user_id");
     },
   },
 };
