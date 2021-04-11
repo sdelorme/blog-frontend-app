@@ -6,10 +6,14 @@
         Title:
         <input v-model="newPostTitle" />
       </p>
-      <p>
-        Body:
-        <input v-model="newPostBody" />
-      </p>
+      <div>
+        <p>
+          Body:
+          <input v-model="newPostBody" />
+        </p>
+        <small v-if="newPostBody">Remaining characters: {{ 100 - newPostBody.length }}</small>
+        <small v-else>Type something in your body</small>
+      </div>
       <p>
         Image Url:
         <input v-model="newPostImage" />
